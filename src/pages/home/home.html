@@ -1,0 +1,30 @@
+<ion-content>
+
+  <div class="container home-container">
+    <ion-card>  
+      <ion-card-content>
+          <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+              
+              <ion-item [ngClass]="{'error-border':loginForm.controls.username.hasError('required') && loginForm.controls.username.touched}">
+                <ion-label floating>Usuario</ion-label>
+                <ion-input type="text" name="username" formControlName="username" style="border-bottom: 1px solid black"></ion-input>
+              </ion-item>
+      
+              <ion-item> 
+                <ion-label floating>Contraseña</ion-label>
+                  <ion-input type="password" name="password" formControlName="password" style="border-bottom: 1px solid black" ></ion-input>
+              </ion-item>
+              
+                  <ion-col col-8>
+                      <button ion-button type="submit" class="formSendButton">Enviar</button>
+                  </ion-col>
+
+                  <ion-col col-4>
+                    <a ion-button color="light" id="link-register" (click)="sendToRegister()">Registrate</a>
+                  </ion-col>
+            </form>
+
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

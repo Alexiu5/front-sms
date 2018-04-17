@@ -1,0 +1,53 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Crear cuenta</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="container" id="register-container">
+      <ion-card-content>
+              <form [formGroup]='registerForm' (ngSubmit)="registerUser(registerForm.value)" id="form-register">
+                  <ion-item *ngIf="{'error-border':registerForm.controls.username.hasError('required') && registerForm.controls.username.touched}">
+                    <ion-label floating>Usuario</ion-label>
+                    <ion-input type="text" name="username" formControlName="username"></ion-input>
+                  </ion-item>
+      
+                  <ion-item [ngClass]="{'error-border':!registerForm.controls.password.valid && registerForm.controls.password.touched}"> 
+                    <ion-label floating>Contraseña</ion-label>
+                      <ion-input type="password" name="password" formControlName="password"></ion-input>
+                  </ion-item>
+      
+                  <ion-item> 
+                      <ion-label floating>Nombre Completo</ion-label>
+                        <ion-input type="text" name="name" formControlName="name"></ion-input>
+                  </ion-item>
+          
+                  <ion-item> 
+                      <ion-label floating>Email</ion-label>
+                        <ion-input type="mail" name="mail" formControlName="mail" ></ion-input>
+                  </ion-item>
+          
+                  <ion-item [ngClass]="{'error-border': registerForm.controls.phone_number.valid && registerForm.controls.phone_number.touched}"> 
+                      <ion-label floating>Número telefonico</ion-label>
+                        <ion-input type="tel" name="phone_number" formControlName="phone_number" ></ion-input>
+                  </ion-item>
+                  
+                  <ion-item no-lines >
+                    <ion-label *ngIf="registerForm.controls.phone_number.hasError('pattern') && registerForm.controls.phone_number.touched" class="warnings">
+                        Recuerda solo números
+                    </ion-label>
+                    <ion-label *ngIf="registerForm.controls.phone_number.hasError('minLength') && registerForm.controls.phone_number.touched" class="warnings">
+                        la cantiadad minima para el numero de celular es de 10 digitos
+                    </ion-label>
+                  </ion-item>
+          
+                  <button ion-button type="submit" block class="formSendButton">Enviar</button>
+                </form>
+      </ion-card-content>
+    </div>
+
+</ion-content>

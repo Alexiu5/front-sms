@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Validar número</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+   <ion-grid>
+     <ion-row>
+       <ion-col>
+          <h2>Vamos a confirmar tus credenciales</h2>
+          <p> Te enviamos un mensaje al número:<strong> {{phone_number}} </strong> por favor escribelo en el siguiente campo para continuar</p>
+       </ion-col>
+     </ion-row>
+   </ion-grid>
+
+
+
+  <form [formGroup]="validateForm" (ngSubmit)="sendCode(validateForm.value)" >
+    <ion-item [ngClass]="{'error-border':validateForm.controls.code.hasError('required') && validateForm.controls.code.touched}">
+      <ion-label left>Codigo</ion-label>
+      <ion-input type="number" name="code" formControlName="code"></ion-input>
+    </ion-item>
+
+    <ion-item no-lines>
+      <ion-label class="lblAlert" *ngIf="validateForm.controls.code.hasError('required') && validateForm.controls.code.touched">
+        Campo vacio
+      </ion-label>  
+    </ion-item>
+    <button ion-button type="submit" class="formSendButton" block>Enviar</button>
+  </form>
+</ion-content>

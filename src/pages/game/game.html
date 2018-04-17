@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="container" id="game-container">
+    <img src="../../assets/imgs/game/arrow.png" alt="arrow" id="arrow">
+    
+    <div class="wheel-canvas" [@wheel]="estado" (@wheel.done)="showEarning()" >   
+        <img src="../../assets/imgs/game/spin_wheel_options.png"  id='wheel' alt="wheel">
+    </div>
+
+    <button ion-button (click)="stopAnimation()" id="btn-active" block>Active</button>
+  </div>
+
+  
+</ion-content>
+
+
