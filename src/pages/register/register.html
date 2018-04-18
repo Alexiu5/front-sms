@@ -8,7 +8,7 @@
 
 
 <ion-content>
-  <div class="container" id="register-container">
+  <div class="container" id="register-container" style="background-image: url(assets/imgs/register/registro_usuario_no_text.png);">
       <ion-card-content>
               <form [formGroup]='registerForm' (ngSubmit)="registerUser(registerForm.value)" id="form-register">
                   <ion-item *ngIf="{'error-border':registerForm.controls.username.hasError('required') && registerForm.controls.username.touched}">

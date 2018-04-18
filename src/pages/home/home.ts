@@ -53,6 +53,7 @@ export class HomePage {
           loading.dismiss()
       })      
     }else{
+      loading.dismiss()
       this.serverProvider.showToast('Información inconsistente')
     }
   }
